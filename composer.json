@@ -1,6 +1,6 @@
 {
-    "name": "estudarfora/wordpress",
-    "description": "WordPress CMS",
+    "name": "fuerza/elementor-boilerplate",
+    "description": "Fuerza Studio - WordPress and Elementor Boilerplate",
     "repositories": [
         {
             "type": "composer",
