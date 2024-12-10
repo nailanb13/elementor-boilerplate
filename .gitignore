@@ -8,6 +8,8 @@
 /wp-admin/
 /wp-content/index.php
 /wp-content/languages
+/wp-content/plugins
+/wp-content/themes
 /wp-content/plugins/index.php
 /wp-content/themes/index.php
 /wp-includes/
@@ -34,6 +36,40 @@ wp-config.php
 
 # htaccess
 /.htaccess
+
+# caches
+.cache
+
+# ignore all files in root
+/backup
+/*.*
+
+# files to keep
+!.gitignore
+!.gitlab-ci.yml
+!README.md
+!composer.json
+!composer.lock
+
+# ignore log files and databases
+.phpintel
+.htaccess
+.DS_Store
+*.log
+*.sql
+*.sqlite
+*.zip
+*.tgz
+*.gz
+*.tar
+*.tar.gz
+*.lock
+
+
+# npm e composer
+node_modules
+/vendor
+wp-content/db.php
 
 # All plugins
 #

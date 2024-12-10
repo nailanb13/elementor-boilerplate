@@ -1,0 +1,82 @@
+{
+    "name": "estudarfora/wordpress",
+    "description": "WordPress CMS",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        },
+        {
+            "type":"composer",
+            "url":"https://connect.advancedcustomfields.com",
+            "only": [
+                "wpengine/advanced-custom-fields-pro"
+            ]
+        },
+        {
+            "type": "composer",
+            "url": "https://composer.elementor.com",
+            "only": [
+                "elementor/elementor-pro"
+            ]
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "wp-graphql/wp-graphql-acf",
+                "version": "0.6.1",
+                "type": "wordpress-plugin",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/wp-graphql/wp-graphql-acf/archive/refs/heads/develop.zip"
+                },
+                "require": {
+                    "composer/installers": "^1.0.7"
+                }
+            }
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "roots/wordpress": "6.6.2",
+        "elementor/elementor-pro": "*",
+        "wpackagist-plugin/elementor": "*",
+        "wpackagist-plugin/wordpress-seo": "23.7",
+        "wpackagist-plugin/wp-super-cache": "^1.12",
+        "wpengine/advanced-custom-fields-pro": "6.3.9",
+        "wpackagist-theme/hello-elementor":"*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Acme": "src/"
+        }
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-master"
+    },
+    "scripts": {
+        "move-wordpress": [
+            "rm -rf wordpress/wp-content/plugins/*",
+            "rm -rf wordpress/wp-content/themes/*",
+            "rm -f wordpress/readme.html",
+            "rm -f wordpress/README.md",
+            "rm -f wordpress/license.txt",
+            "rm -f wordpress/wp-config-sample.php",
+            "rm -f wordpress/wp-admin/install.php",
+            "cp -rf wordpress/* .",
+            "rm -rf wordpress"
+        ],
+        "post-install-cmd": [
+            "@move-wordpress"
+        ],
+        "post-update-cmd": [
+            "@move-wordpress"
+        ]
+    },
+    "config": {
+        "allow-plugins": {
+            "roots/wordpress-core-installer": true,
+            "composer/installers": true
+        }
+    }
+}
